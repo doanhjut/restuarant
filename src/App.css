@@ -1,38 +1,348 @@
-.App {
+
+.background-img{
+  width: 100%;
+  height: 977px;
+}
+.book,
+.dish,
+.introduce, 
+.restaurant-map{
+  position: relative;
+}
+.book-content,
+.dish-content, 
+.restaurant-map-booked,
+.introduce-content{
+  position: absolute;
+  top: 0;
+  /* width: 99%; */
+}
+.book-content label{
+  font-family: 'Great Vibes';
+  font-size: 32px;
+  margin: 250px 0 0 50px;
+  padding-top: 50px;
+  z-index: 2;
+}
+.restaurant-map{
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.restaurant-map img{
+  width: 65%;
+  margin: 10% 0 0 7%;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.date_pick{
+  margin: 10% 0 0 50%;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* button */
+.button-animation .wrap {
+  height: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.button-animation .button {
+  min-width: 300px;
+  min-height: 60px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #313133;
+  background: #4FD1C5;
+background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
   }
+
+.button-animation button::before {
+content: '';
+  border-radius: 1000px;
+  min-width: calc(300px + 12px);
+  min-height: calc(60px + 12px);
+  border: 6px solid #00FFCB;
+  box-shadow: 0 0 60px rgba(0,255,203,.64);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all .3s ease-in-out 0s;
+}
+
+.button-animation .button:hover, .button:focus {
+  color: #313133;
+  transform: translateY(-6px);
+}
+
+.button-animation button:hover::before, button:focus::before {
+  opacity: 1;
+}
+
+.button-animation button::after {
+  content: '';
+  width: 30px; height: 30px;
+  border-radius: 100%;
+  border: 6px solid #00FFCB;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1.5s infinite;
+}
+
+.button-animation button:hover::after, button:focus::after {
+  animation: none;
+  display: none;
+}
+
+@keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+
+/* loading ware */
+.center {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+.wave {
+  width: 5px;
+  height: 100px;
+  background: linear-gradient(45deg, cyan, #fff);
+  margin: 10px;
+  animation: wave 1s linear infinite;
+  border-radius: 20px;
+}
+.wave:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.wave:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.wave:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.wave:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.wave:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.wave:nth-child(7) {
+  animation-delay: 0.6s;
+}
+.wave:nth-child(8) {
+  animation-delay: 0.7s;
+}
+.wave:nth-child(9) {
+  animation-delay: 0.8s;
+}
+.wave:nth-child(10) {
+  animation-delay: 0.9s;
+}
+
+@keyframes wave {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+/* dish */
+.restaurant-dish-booked{
+  text-align: center;
+  padding-left: 15%;
+
+}
+.restaurant-dish-booked label{
+  font-family: 'Great Vibes';
+  font-size: 44px;
+  font-weight: 600;
+  margin-top: 85%;
+  color: #6B0E0E;
+}
+.restaurant-dish-booked p{
+  font-size: 20px;
+}
+.dish-content img{
+  width: 90%;
+  margin: 12% 0 0 5%;
+}
+/* Introduce */
+.introduce-content{
+  width: 100%;
+}
+.introduce-information{
+  font-family: 'Great Vibes';
+  margin: 20% 0 0 55%;
+  width: 30%;
+  text-align: center;
+}
+.introduce-information label{
+  font-family: 'Great Vibes';
+  font-size: 44px;
+  font-weight: 600;
+  color: #6B0E0E;
+}
+.introduce-information p{
+  font-size: 20px;
+}
+.introduce .background-img0{
+  animation: opacity 15s 1 forwards;
+  /* opacity: 0; */
+}
+@keyframes opacity {
   to {
-    transform: rotate(360deg);
+    opacity: 0;
   }
+}
+.introduce_image{
+  position: relative;
+}
+.introduce_image .background-img1{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Comment*/
+.lable-commnet .logo{
+  display: flex;
+  margin: 1% 0 0 5%;
+}
+.lable-commnet .logo p{
+  margin: 0.5% 0 0 1%;
+  font-weight: 600;
+  font-size: 18px;
+}
+.lable-commnet hr{
+  width: 10%;
+  border: 2px solid black;
+  margin-left: 5%;
+}
+.list-comment{
+  padding:0 0 2% 8%;
+}
+.information-customer-introduce{
+  display: flex;
+
+}
+.information-customer-introduce .infor{
+  margin:0 2% 0 0.9%;
+}
+.number-of-favorites{
+  margin-top: -1%;
+}
+.number-of-favorites a{
+  color: rgb(110, 110, 110);
+  margin: 5px;
+}
+.progress-bar-bottom{
+  display: flex;
+  margin-left: 60%;
+}
+.progress-bar{
+  width: 40%;
+  height: 7px;
+}
+.progress-bar-bottom label{
+  font-family: 'Great Vibes';
+  font-size: 24px;
+  margin: -1.5% 0 0 5%;
+}
+@media only screen and (max-width: 600px) {
+  .background-img{
+    width: 100%;
+    height: 736px;
+  }
+  .progress-bar-bottom label{
+    font-size: 18px;
+    margin: -3% 0 0 5%;
+  }
+  .lable-commnet .logo p{
+    margin: 2.5% 0 0 1%;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .background-img{
+    width: 100%;
+    height: auto;
+  }
+  .introduce-information{
+    font-family: 'Great Vibes';
+    margin: 5% 0 0 55%;
+    width: 30%;
+    text-align: center;
+  }
+  .progress-bar-bottom label{
+    font-size: 18px;
+    margin: -2% 0 0 5%;
+  }
+  .lable-commnet .logo p{
+    margin: 1.5% 0 0 1%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .background-img{
+    width: 100%;
+    height: auto;
+  }
+  .introduce-information{
+    font-family: 'Great Vibes';
+    margin: 2% 0 0 55%;
+    width: 30%;
+    text-align: center;
+  }
+  .lable-commnet hr{
+    width: 30%;
+    border: 2px solid black;
+    margin-left: 5%;
+  }
+  .lable-commnet .logo p{
+    margin: 1% 0 0 1%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .introduce-information{
+    font-family: 'Great Vibes';
+    margin: 15% 0 0 55%;
+    width: 30%;
+    text-align: center;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
 }

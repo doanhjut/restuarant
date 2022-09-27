@@ -1,0 +1,403 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+.container-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container-login .screen {
+    background: linear-gradient(90deg, #5D54A4, #7C78B8);
+    position: relative;
+    height: 600px;
+    width: 360px;
+    box-shadow: 0px 0px 24px #5C5696;
+}
+
+.container-login .screen__content {
+    z-index: 1;
+    position: relative;
+    height: 100%;
+}
+
+.container-login .screen__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    -webkit-clip-path: inset(0 0 0 0);
+    clip-path: inset(0 0 0 0);
+}
+
+.container-login .screen__background__shape {
+    transform: rotate(45deg);
+    position: absolute;
+}
+
+.container-login .screen__background__shape1 {
+    height: 520px;
+    width: 520px;
+    background: #FFF;
+    top: -50px;
+    right: 120px;
+    border-radius: 0 72px 0 0;
+}
+
+.container-login .screen__background__shape2 {
+    height: 220px;
+    width: 220px;
+    background: #6C63AC;
+    top: -172px;
+    right: 0;
+    border-radius: 32px;
+}
+
+.container-login .screen__background__shape3 {
+    height: 540px;
+    width: 190px;
+    background: linear-gradient(270deg, #5D54A4, #6A679E);
+    top: -24px;
+    right: 0;
+    border-radius: 32px;
+}
+
+.container-login .screen__background__shape4 {
+    height: 400px;
+    width: 200px;
+    background: #7E7BB9;
+    top: 420px;
+    right: 50px;
+    border-radius: 60px;
+}
+
+.container-login .login {
+    width: 320px;
+    padding: 30px;
+    padding-top: 156px;
+}
+
+.container-login .login__field {
+    padding: 20px 0px;
+    position: relative;
+}
+
+.container-login .login__icon {
+    position: absolute;
+    top: 30px;
+    color: #7875B5;
+}
+
+.container-login .login__input {
+    border: none;
+    border-bottom: 2px solid #D1D1D4;
+    background: none;
+    padding: 10px;
+    padding-left: 24px;
+    font-weight: 700;
+    width: 75%;
+    transition: .2s;
+}
+
+.container-login .login__input:active,
+.container-login .login__input:focus,
+.container-login .login__input:hover {
+    outline: none;
+    border-bottom-color: #6A679E;
+}
+
+.container-login .login__submit {
+    background: #fff;
+    font-size: 14px;
+    margin-top: 30px;
+    padding: 16px 20px;
+    border-radius: 26px;
+    border: 1px solid #D4D3E8;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: #4C489D;
+    box-shadow: 0px 2px 2px #5C5696;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.container-login .login__submit:active,
+.container-login .login__submit:focus,
+.container-login .login__submit:hover {
+    border-color: #6A679E;
+    outline: none;
+}
+
+.container-login .button__icon {
+    font-size: 24px;
+    margin-left: auto;
+    color: #7875B5;
+}
+
+.container-login .social-login {
+    position: absolute;
+    height: 140px;
+    width: 160px;
+    text-align: center;
+    bottom: 0px;
+    right: 0px;
+    color: #fff;
+}
+
+.container-login .social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-login .social-login__icon {
+    padding: 20px 10px;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0px 0px 8px #7875B5;
+}
+
+.container-login .social-login__icon:hover {
+    transform: scale(1.5);
+}
+
+
+
+
+
+
+
+.container-login2 .modal-body {
+    display: flex;
+    padding: 0;
+    border-radius: 4rem;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.container-login2 .modal-content {
+    border-radius: 4rem;
+    width: 140%;
+    -webkit-box-shadow: -1px -2px 42px -19px rgba(0, 0, 0, 0.74);
+    -moz-box-shadow: -1px -2px 42px -19px rgba(0, 0, 0, 0.74);
+    box-shadow: -1px -2px 42px -19px rgba(0, 0, 0, 0.74);
+}
+
+.container-login2 .modal-content h1,
+.container-login2 .modal-content h2,
+.container-login2 .modal-content h3 {
+    text-align: center;
+}
+
+.container-login2 .modal-content h1 {
+    font-size: 1.3em;
+    text-transform: uppercase;
+}
+
+.container-login2 .modal-content h2 {
+    font-size: 1.1em;
+}
+
+.container-login2 .modal-content h3 {
+    font-size: .8em;
+    letter-spacing: 2px;
+}
+
+.container-login2 form {
+    font-size: .8em;
+}
+
+.container-login2 .column {
+    flex: 50%;
+    padding: 10px;
+}
+
+.container-login2 .column#main {
+    flex: 75%;
+    padding: 50px;
+    margin-top: 30px;
+    margin-left: 15px;
+}
+
+.container-login2 #secondary {
+    background-color: #F9BC35;
+    border-radius: 0 4rem 4rem 0;
+    text-align: center;
+}
+
+.container-login2 #main .form-control {
+    border-radius: 0;
+    font-size: .9em;
+}
+
+.container-login2 .btn {
+    text-transform: uppercase;
+    border-radius: .15rem;
+    width: 200px;
+    padding: .150rem .75rem;
+    margin: 30px auto;
+    font-family: 'PT Sans', sans-serif;
+    letter-spacing: 2px;
+}
+
+.container-login2 .btn-primary {
+    border-color: rgba(255, 255, 255, 0);
+    background: #f1da36;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #f1da36 0%, #fca86c 99%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #f1da36 0%, #fca86c 99%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #f1da36 0%, #fca86c 99%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f1da36', endColorstr='#fca86c', GradientType=1);
+    /* IE6-9 */
+
+}
+
+.container-login2 .btn-primary:hover {
+    border-color: rgba(255, 255, 255, 0);
+}
+
+.container-login2 #main .btn-primary {
+    width: 100%;
+}
+
+#secondary .btn-primary {
+    background: #f8f9fa4f;
+    color: #000;
+}
+
+.modal-body label {
+    margin-bottom: 0;
+}
+
+.sec-content {
+    margin-top: 85%;
+}
+
+
+
+/* image-hover */
+
+.image-hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.image-hover .container {
+    position: relative;
+    width: 1160px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    margin: auto;
+}
+
+.image-hover .container .box {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background: #000;
+    transition: 0.5s;
+    transform-style: preserve-3d;
+    overflow: hidden;
+    margin-right: 15px;
+    margin-top: 45px;
+}
+
+.image-hover .container:hover .box {
+    transform: rotateY(25deg);
+}
+
+.image-hover .container .box:hover~.box {
+    transform: rotateY(-25deg);
+}
+
+.image-hover .container .box:hover {
+    transform: rotateY(0deg) scale(1.25);
+    z-index: 1;
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.5);
+}
+
+.image-hover .container .box .imgBx {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.image-hover .container .box .imgBx:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #f00, #000);
+    z-index: 1;
+    opacity: 0;
+    transition: 0.5s;
+    mix-blend-mode: multiply;
+}
+
+.image-hover .container .box:hover .imgBx:before {
+    opacity: 1;
+}
+
+.image-hover .container .box .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-hover .container .box .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    padding: 20px;
+    align-items: flex-end;
+    box-sizing: border-box;
+}
+
+.image-hover .container .box .content h2 {
+    color: #fff;
+    transition: 0.5s;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-size: 20px;
+    transform: translateY(200px);
+    transition-delay: 0.3s;
+}
+
+.image-hover .container .box:hover .content h2 {
+    transform: translateY(0px);
+}
+
+.image-hover .container .box .content p {
+    color: #fff;
+    transition: 0.5s;
+    font-size: 14px;
+    transform: translateY(200px);
+    transition-delay: 0.4s;
+}
+
+.image-hover .container .box:hover .content p {
+    transform: translateY(0px);
+}
