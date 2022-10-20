@@ -1,6 +1,8 @@
 const express = require('express');
 const bookRoute = require('./book.route');
 const commentsRoute = require('./comments.route');
+const dishRoute = require('./dish.route');
+const billRoute = require('./bill.route');
 const router = express.Router();
 
 const defaultRoutes = [
@@ -11,6 +13,14 @@ const defaultRoutes = [
   {
     path: '/comments',
     route: commentsRoute,
+  },
+  {
+    path: '/dishs',
+    route: dishRoute,
+  },
+  {
+    path: '/bill',
+    route: billRoute,
   },
 ];
 
