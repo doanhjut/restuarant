@@ -5,7 +5,6 @@ function IntroduceIndex() {
   return (
     <div className="App">
         <Introduce></Introduce>
-        <Comment></Comment>
         <ImageHover></ImageHover>
     </div>
   );

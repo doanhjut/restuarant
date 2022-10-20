@@ -8,6 +8,7 @@ import 'antd/dist/antd.css';
 import { Stage, Layer, Star, Text } from "react-konva";
 import { callApiGetDataTable } from "../../../actions/index";
 import Loading from "../../unit/Loading";
+import { useNavigate } from "react-router-dom";
 
 
 function generateShapes() {
@@ -99,52 +100,74 @@ function generateShapes() {
     ]
 }
 const INITIAL_STATE = generateShapes();
-console.log(INITIAL_STATE);
+// console.log(INITIAL_STATE);
 function App() {
-    const [stars, setStars] = React.useState(INITIAL_STATE);
+    const [stars, setStars] = React.useState([]);
     const [status, setStatus] = useState(false);
     const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY'];
     const dispatch = useDispatch();
-
+    const [onChangeTime, setOnChangeTime] = useState(moment(new Date()).format('DD-MM-YYYY'))
+    const navigate = useNavigate();
     useEffect(() => {
         dispatch(callApiGetDataTable());
-    })
+        // console.log(dataTable);
+    }, [])
     const dataTable = useSelector(state => state.dataTable);
+
     const restaurantBook = () => {
+
         if (dataTable.restaurant_book) {
             const data_book = [];
             dataTable.restaurant_book.results.forEach(customer_book => {
-                data_book.push(stars[customer_book.name - 1]);
+                if (customer_book.status === onChangeTime) {
+                    data_book.push(INITIAL_STATE[customer_book.name - 1]);
+                }
+
             });
             setStars(data_book);
             setStatus(true);
         }
     }
+
+    const onChangeTimeBook = (date, dateString) => {
+        // console.log(dateString);
+        console.log(moment(date).format('DD-MM-YYYY'));
+        setOnChangeTime(moment(date).format('DD-MM-YYYY'))
+    }
+
     useEffect(() => {
-        if (!status) {
-            restaurantBook();
-        }
-    })
+        restaurantBook();
+    }, [onChangeTime])
     return (
         <>
-            {!status ?
+            {/* {!status ? */}
+            {/* {status ?
                 <Loading></Loading>
-                :
-                <div className="book">
-                    <img src={background} className="background-img"></img>
-                    <div className="book-content">
-                        {/* <Space className="date_pick">
-                            <DatePicker defaultValue={moment('01/01/2015', dateFormatList[0])} format={dateFormatList} />
-                        </Space> */}
-                        <div className="restaurant-map">
-                            <img src={table_img}></img>
-                            {/* <div>
+                : */}
+            <div className="book">
+                {/* <div className="">
+
+                    </div> */}
+                <img src={background} className="background-img"></img>
+                <div className="book-content" >
+                    <div style={{ zIndex: "100", top: "5%", position: "absolute", right: "5%" }} className="button-change-book">
+                        <DatePicker defaultValue={moment(new Date(), dateFormatList[0])} format={dateFormatList} onChange={onChangeTimeBook} />
+                        <div class="box-2">
+                            <div class="btn btn-two" onClick={()=> navigate('/book')}>
+                                <span>ĐẶT BÀN</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="restaurant-map">
+                        <img src={table_img}></img>
+                        {/* <div>
                                 <label>Lưu Danh</label>
                             </div> */}
-                            <div className="restaurant-map-booked">
-                                <Stage width={window.innerWidth} height={window.innerHeight}>
-                                    <Layer>
-                                        {stars.map((star) => (
+                        <div className="restaurant-map-booked">
+                            <Stage width={window.innerWidth} height={window.innerHeight}>
+                                <Layer>
+                                    {stars ?
+                                        stars.map((star) => (
                                             <Star
                                                 key={star.id}
                                                 id={star.id}
@@ -167,16 +190,16 @@ function App() {
                                             // onDragStart={handleDragStart}
                                             // onDragEnd={handleDragEnd}
                                             />
-                                        ))}
-                                    </Layer>
-                                </Stage>
-                            </div>
+                                        )) : ""}
+                                </Layer>
+                            </Stage>
                         </div>
                     </div>
-
-
                 </div>
-            }
+
+
+            </div>
+            {/* } */}
         </>
 
     );
