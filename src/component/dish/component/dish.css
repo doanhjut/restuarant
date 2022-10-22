@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -119,13 +120,206 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   transition: 0.5s;
 }
+
 .dish-menu .containers .card .box .content i {
   font-size: 18px;
   margin: 5%;
   font-weight: 600;
 }
+
 .dish-menu .containers .card .box .content a:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
   /* background: #fff; */
   color: #000;
+}
+
+.card_dish_oder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: #000;
+  font-family: "Roboto", sans-serif;
+  border-radius: 20px;
+  margin-left: 10%;
+  color: #10182f;
+}
+
+.card_dish_oder .container {
+  display: flex;
+  width: 1040px;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.card_dish_oder .card {
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 300px;
+}
+
+.card_dish_oder .card-header img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card_dish_oder .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  min-height: 250px;
+}
+
+.card_dish_oder .tag {
+  background: #cccccc;
+  border-radius: 50px;
+  font-size: 12px;
+  margin: 0;
+  color: #fff;
+  padding: 2px 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.card_dish_oder .tag-teal {
+  background-color: #47bcd4;
+}
+
+.card_dish_oder .tag-purple {
+  background-color: #5e76bf;
+}
+
+.card_dish_oder .tag-pink {
+  background-color: #cd5b9f;
+}
+
+.card_dish_oder .card-body p {
+  font-size: 13px;
+  margin: 0 0 40px;
+}
+
+.card_dish_oder .user {
+  display: flex;
+  margin-top: auto;
+}
+
+.card_dish_oder .user img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.card_dish_oder .user-info h5 {
+  margin: 0;
+}
+
+.card_dish_oder .user-info small {
+  color: #545d7a;
+}
+
+
+
+
+.star-container label {
+  cursor: pointer;
+}
+
+.star-container svg {
+  width: 3rem;
+  height: 3rem;
+  padding: 0.15rem;
+}
+
+
+/* hide radio buttons */
+
+.star-container input[name="star"] {
+  display: inline-block;
+  width: 0;
+  opacity: 0;
+  margin-left: -2px;
+}
+
+/* hide source svg */
+
+.star-source {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+
+}
+
+.btn-danh-gia :hover {
+  background-color: #2196f3;
+  color: white;
+}
+
+.btn-danh-gia {
+  width: "40%";
+  height: "40px";
+  border-radius: "8px";
+  padding: "1%";
+  color: "black";
+  font-size: "16px";
+  margin-top: "20px";
+  float: "right";
+  margin-right: "10%"
+}
+
+/* set initial color to transparent so fill is empty*/
+
+.star-container .star {
+  color: transparent;
+  transition: color 0.2s ease-in-out;
+}
+
+
+/* set direction to row-reverse so 5th star is at the end and ~ can be used to fill all sibling stars that precede last starred element*/
+
+.star-container .star-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
+.star-container label:hover~label .star,
+svg.star:hover,
+.star-container input[name="star"]:focus~label .star,
+.star-container input[name="star"]:checked~label .star {
+  color: #d62a9d;
+}
+
+.star-container input[name="star"]:checked+label .star {
+  animation: starred 0.5s;
+}
+
+.star-container input[name="star"]:checked+label {
+  animation: scaleup 1s;
+}
+
+@keyframes scaleup {
+  from {
+    transform: scale(1.2);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes starred {
+  from {
+    color: #600040;
+  }
+
+  to {
+    color: #d62a9d;
+  }
 }

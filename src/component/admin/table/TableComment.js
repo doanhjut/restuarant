@@ -1,6 +1,18 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
 function TableComment() {
+    const [listDataTableComment, setListDataTableComment] = useState([]);
+    useEffect(() => {
+        axios.get('http://192.168.160.85:5000/restaurant/comments')
+            .then(res => {
+                setListDataTableComment(res.data.results);
+            })
+            .catch(error => {
+                const errorMsg = error.message
+            })
+
+    }, []);
     return (
         <div className='table'>
             <table class="table table-hover">
@@ -12,37 +24,19 @@ function TableComment() {
                         <th>Bính luận</th>
                         <th>Đồng ý</th>
                         <th>Không đồng ý</th>
-                        <th>Ngày đánh giá</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>John</td>
-                        <td>4</td>
-                        <td>Tôi đã có những trải nghiệm tuyệt vời</td>
-                        <td>5</td>
-                        <td>0</td>
-                        <td>20/4/2022</td>
+                    {listDataTableComment.map((commentDishs, index) => (
+                        <tr>
+                        <td>{index+1}</td>
+                        <td>{commentDishs.phoneNumber}</td>
+                        <td>{commentDishs.evaluate}</td>
+                        <td>{commentDishs.comment}</td>
+                        <td>{commentDishs.like}</td>
+                        <td>{commentDishs.dislike}</td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Lưu Danh</td>
-                        <td>4</td>
-                        <td>Món ăn ngon , phục vụ chu đáo</td>
-                        <td>2</td>
-                        <td>0</td>
-                        <td>20/4/2022</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>July</td>
-                        <td>3</td>
-                        <td>Giá khá cao</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>17/10/2022</td>
-                    </tr>
+                    ))}
                 </tbody>
             </table>
         </div>

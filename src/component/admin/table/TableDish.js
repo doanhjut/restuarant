@@ -1,6 +1,18 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
 function TableDish() {
+    const [listDataTableDish, setListDataTableDish] = useState([]);
+    useEffect(() => {
+        axios.get('http://192.168.160.85:5000/restaurant/commentDish')
+            .then(res => {
+                setListDataTableDish(res.data.results);
+            })
+            .catch(error => {
+                const errorMsg = error.message
+            })
+
+    }, []);
     return (
         <div className='table'>
             <table class="table table-hover">
@@ -16,33 +28,17 @@ function TableDish() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>John</td>
-                        <td>Tôm sốt chanh dây</td>
-                        <td>Món ăn khá ngon</td>
-                        <td>5</td>
-                        <td>4.2</td>
-                        <td>20/4/2022</td>
+                    {listDataTableDish.map((commentDishs, index) => (
+                        <tr>
+                        <td>{index+1}</td>
+                        <td>{commentDishs.nameCustommer}</td>
+                        <td>{commentDishs.nameDish}</td>
+                        <td>{commentDishs.comment}</td>
+                        <td>{commentDishs.evaluate}</td>
+                        <td>{commentDishs.overallReview}</td>
+                        <td>{commentDishs.date}</td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Lưu Danh</td>
-                        <td>Phở bát đá</td>
-                        <td>Món ăn ngon , phục vụ chu đáo</td>
-                        <td>5</td>
-                        <td>4.7</td>
-                        <td>20/4/2022</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>July</td>
-                        <td>Bún thang</td>
-                        <td>Món ăn nhạt</td>
-                        <td>3</td>
-                        <td>3.9</td>
-                        <td>17/10/2022</td>
-                    </tr>
+                    ))}
                 </tbody>
             </table>
         </div>
