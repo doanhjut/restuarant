@@ -3,6 +3,7 @@ const bookRoute = require('./book.route');
 const commentsRoute = require('./comments.route');
 const dishRoute = require('./dish.route');
 const billRoute = require('./bill.route');
+const commentDishRoute = require('./commentDishs.route'); 
 const router = express.Router();
 
 const defaultRoutes = [
@@ -22,6 +23,10 @@ const defaultRoutes = [
     path: '/bill',
     route: billRoute,
   },
+  {
+    path :'/commentDish',
+    route :commentDishRoute
+  }
 ];
 
 defaultRoutes.forEach((route) => {

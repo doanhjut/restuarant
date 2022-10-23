@@ -21,7 +21,7 @@ const getDish = catchAsync(async (req, res) => {
     const filter = pick(req.query, ['phoneNumber']);
     const options = pick(req.query, ['sortBy', 'limit', 'page']);
     const result = await dishService.getDish(filter, options);
-    console.log('oke');
+    console.log(result);
     res.send(result);
 });
 

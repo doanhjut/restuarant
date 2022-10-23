@@ -31,9 +31,10 @@ const createDish = async (dishBody) => {
  * @returns {Promise<QueryResult>}
  */
 const getDish = async (filter, options) => {
-  console.log(options);
+
 
   const users = await Dish.paginate(filter, options);
+  console.log(users);
   return users;
 };
 /**
