@@ -26,7 +26,7 @@ function Card() {
                                     </div>
                                 </div>
                                 <div class="card-back">
-                                    <video class="video__container" autoplay muted loop>
+                                    <video class="video__container" autoPlay muted loop>
                                         <source class="video__media" src="https://player.vimeo.com/external/370331493.sd.mp4?s=e90dcaba73c19e0e36f03406b47bbd6992dd6c1c&profile_id=139&oauth2_token_id=57447761" type="video/mp4"/>
                                     </video>
                                 </div>
@@ -69,7 +69,7 @@ function Card() {
                                 </div>
 
                                 <div class="card-back">
-                                    <video class="video__container" autoplay muted loop>
+                                    <video class="video__container" autoPlay muted loop>
                                         <source class="video__media" src="https://player.vimeo.com/external/195913085.sd.mp4?s=7c12f7a83de62a8900fd2ae049297070b9bc8a54&profile_id=164&oauth2_token_id=574477611" type="video/mp4"/>
                                     </video>
                                 </div>
@@ -112,7 +112,7 @@ function Card() {
                                     </div>
                                 </div>
                                 <div class="card-back">
-                                    <video class="video__container" autoplay muted loop>
+                                    <video class="video__container" autoPlay muted loop>
                                         <source class="video__media" src="https://player.vimeo.com/external/332588783.sd.mp4?s=cab1817146dd72daa6346a1583cc1ec4d9e677c7&profile_id=139&oauth2_token_id=57447761" type="video/mp4"/>
                                     </video>
                                 </div>
@@ -154,7 +154,7 @@ function Card() {
                                     </div>
                                 </div>
                                 <div class="card-back">
-                                    <video class="video__container" autoplay muted loop>
+                                    <video class="video__container" autoPlay muted loop>
                                         <source class="video__media" src="https://player.vimeo.com/external/180185916.sd.mp4?s=c893e4770f87b00e0d6b5a1de138b01b02aaa085&profile_id=164&oauth2_token_id=57447761" type="video/mp4"/>
                                     </video>
                                 </div>

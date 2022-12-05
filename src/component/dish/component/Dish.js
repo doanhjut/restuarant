@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './dish.css';
 import { DatePicker, Space, message } from 'antd';
 import star from "../../../image/star.png"
+import star_black from "../../../image/star_black.png"
 import io from "socket.io-client";
 import Menu from '../../menu/Menu';
 import axios from 'axios';
@@ -87,7 +88,7 @@ function Dish() {
                     var dishtemp = {
                         "lable": element.lable,
                         "content": element.content,
-                        "img": { backgroundImage: "url("+element.img+")" },
+                        "img": { backgroundImage: "url(" + element.img + ")" },
                         "evaluate": element.evaluate
                     }
                     dishs.push(dishtemp)
@@ -140,9 +141,6 @@ function Dish() {
     const onSetChangeStarUpdate = (data) => {
         axios.patch('http://192.168.160.85:5000/restaurant/dishs', data)
             .then(res => {
-                // const bill = res.data
-                // setListBill(bill.results);
-                // console.log(dishPic.lable);
                 setDishPic();
             })
             .catch(error => {
@@ -158,12 +156,12 @@ function Dish() {
                 res.data.results.forEach(element => {
                     if (element.lable === dishPic.lable) {
                         if (starEvaluate == 1) {
-                            var evaluatetemp= (parseInt(element.star1) + 1)+parseInt(element.star2)+parseInt(element.star3)+parseInt(element.star4)+parseInt(element.star5);
-                            var numberStar= (parseInt(element.star1) + 1)+parseInt(element.star2)*2+parseInt(element.star3)*3+parseInt(element.star4)*4+parseInt(element.star5)*5;
+                            var evaluatetemp = (parseInt(element.star1) + 1) + parseInt(element.star2) + parseInt(element.star3) + parseInt(element.star4) + parseInt(element.star5);
+                            var numberStar = (parseInt(element.star1) + 1) + parseInt(element.star2) * 2 + parseInt(element.star3) * 3 + parseInt(element.star4) * 4 + parseInt(element.star5) * 5;
                             onSetChangeStarUpdate({
                                 content: element.content
                                 , dislike: element.dislike
-                                , evaluate: (numberStar/evaluatetemp).toFixed(1)
+                                , evaluate: (numberStar / evaluatetemp).toFixed(1)
                                 , id: element.id
                                 , img: element.img
                                 , lable: element.lable
@@ -173,14 +171,15 @@ function Dish() {
                                 , star3: element.star3
                                 , star4: element.star4
                                 , star5: element.star5
+                                ,price: element.price
                             })
                         } else if (starEvaluate == 2) {
-                            var evaluatetemp= (parseInt(element.star1))+(parseInt(element.star2) + 1)+parseInt(element.star3)+parseInt(element.star4)+parseInt(element.star5);
-                            var numberStar= (parseInt(element.star1))+(parseInt(element.star2) + 1)*2+parseInt(element.star3)*3+parseInt(element.star4)*4+parseInt(element.star5)*5;
+                            var evaluatetemp = (parseInt(element.star1)) + (parseInt(element.star2) + 1) + parseInt(element.star3) + parseInt(element.star4) + parseInt(element.star5);
+                            var numberStar = (parseInt(element.star1)) + (parseInt(element.star2) + 1) * 2 + parseInt(element.star3) * 3 + parseInt(element.star4) * 4 + parseInt(element.star5) * 5;
                             onSetChangeStarUpdate({
                                 content: element.content
                                 , dislike: element.dislike
-                                , evaluate: (numberStar/evaluatetemp).toFixed(1)
+                                , evaluate: (numberStar / evaluatetemp).toFixed(1)
                                 , id: element.id
                                 , img: element.img
                                 , lable: element.lable
@@ -190,15 +189,16 @@ function Dish() {
                                 , star3: element.star3
                                 , star4: element.star4
                                 , star5: element.star5
+                                ,price: element.price
                             })
                         }
                         else if (starEvaluate == 3) {
-                            var evaluatetemp= (parseInt(element.star1))+parseInt(element.star2)+(parseInt(element.star3) + 1)+parseInt(element.star4)+parseInt(element.star5);
-                            var numberStar= (parseInt(element.star1))+parseInt(element.star2)*2+(parseInt(element.star3) + 1)*3+parseInt(element.star4)*4+parseInt(element.star5)*5;
+                            var evaluatetemp = (parseInt(element.star1)) + parseInt(element.star2) + (parseInt(element.star3) + 1) + parseInt(element.star4) + parseInt(element.star5);
+                            var numberStar = (parseInt(element.star1)) + parseInt(element.star2) * 2 + (parseInt(element.star3) + 1) * 3 + parseInt(element.star4) * 4 + parseInt(element.star5) * 5;
                             onSetChangeStarUpdate({
                                 content: element.content
                                 , dislike: element.dislike
-                                , evaluate: (numberStar/evaluatetemp).toFixed(1)
+                                , evaluate: (numberStar / evaluatetemp).toFixed(1)
                                 , id: element.id
                                 , img: element.img
                                 , lable: element.lable
@@ -208,15 +208,16 @@ function Dish() {
                                 , star3: (parseInt(element.star3) + 1).toString()
                                 , star4: element.star4
                                 , star5: element.star5
+                                ,price: element.price
                             })
                         }
                         else if (starEvaluate == 4) {
-                            var evaluatetemp= (parseInt(element.star1))+parseInt(element.star2)+parseInt(element.star3)+(parseInt(element.star4) + 1)+parseInt(element.star5);
-                            var numberStar= (parseInt(element.star1))+parseInt(element.star2)*2+parseInt(element.star3)*3+(parseInt(element.star4) + 1)*4+parseInt(element.star5)*5;
+                            var evaluatetemp = (parseInt(element.star1)) + parseInt(element.star2) + parseInt(element.star3) + (parseInt(element.star4) + 1) + parseInt(element.star5);
+                            var numberStar = (parseInt(element.star1)) + parseInt(element.star2) * 2 + parseInt(element.star3) * 3 + (parseInt(element.star4) + 1) * 4 + parseInt(element.star5) * 5;
                             onSetChangeStarUpdate({
                                 content: element.content
                                 , dislike: element.dislike
-                                , evaluate: (numberStar/evaluatetemp).toFixed(1)
+                                , evaluate: (numberStar / evaluatetemp).toFixed(1)
                                 , id: element.id
                                 , img: element.img
                                 , lable: element.lable
@@ -226,15 +227,16 @@ function Dish() {
                                 , star3: element.star3
                                 , star4: (parseInt(element.star4) + 1).toString()
                                 , star5: element.star5
+                                ,price: element.price
                             })
                         }
                         else {
-                            var evaluatetemp= (parseInt(element.star1))+parseInt(element.star2)+parseInt(element.star3)+parseInt(element.star4)+(parseInt(element.star5) + 1);
-                            var numberStar= (parseInt(element.star1))+parseInt(element.star2)*2+parseInt(element.star3)*3+parseInt(element.star4)*4+(parseInt(element.star5) + 1)*5;
+                            var evaluatetemp = (parseInt(element.star1)) + parseInt(element.star2) + parseInt(element.star3) + parseInt(element.star4) + (parseInt(element.star5) + 1);
+                            var numberStar = (parseInt(element.star1)) + parseInt(element.star2) * 2 + parseInt(element.star3) * 3 + parseInt(element.star4) * 4 + (parseInt(element.star5) + 1) * 5;
                             onSetChangeStarUpdate({
                                 content: element.content
                                 , dislike: element.dislike
-                                , evaluate: (numberStar/evaluatetemp).toFixed(1)
+                                , evaluate: (numberStar / evaluatetemp).toFixed(1)
                                 , id: element.id
                                 , img: element.img
                                 , lable: element.lable
@@ -244,11 +246,11 @@ function Dish() {
                                 , star3: element.star3
                                 , star4: element.star4
                                 , star5: (parseInt(element.star5) + 1).toString()
+                                ,price: element.price
                             })
                         }
                     }
                 });
-                // setDishPic();
             })
             .catch(error => {
                 const errorMsg = error.message
@@ -273,7 +275,6 @@ function Dish() {
                     // const bill = res.data
                     // setListBill(bill.results);
                     // console.log(dishPic.lable);
-                    // setDishPic();
                 })
                 .catch(error => {
                     const errorMsg = error.message
@@ -282,43 +283,95 @@ function Dish() {
         }
     }
     return (
-        // <div className="dish">
-        //     <img src={background2} className="background-img"></img>
-        //     <div className="dish-content">
-
-        //         <div className="restaurant-dish-menu row">
-        //             <div className="restaurant-dish-booked col-5">
-        //                 <label>{dish.lable}</label>
-        //                 <p>{dish.content}</p>
-        //             </div>
-        //             <div className='col-7'>
-        //                 <img src={dish.img}></img>
-        //             </div>
-        //         </div>
-
-        //     </div>
-
-
-        // </div>
-
         <div className='dish-menu'>
             <div className="containers">
                 {dataDisd.map((dishs) => (
                     <div className="card" style={{ position: "relative" }}>
                         <div className="box" style={dishs.img} >
-                            {/* <div className="box"> */}
-                            <div className="content" >
-                                <h2>01</h2>
-                                <h3 style={{ color: "white" }}>{dishs.lable}</h3>
-                                <i style={{ color: "white" }}>{dishs.evaluate}</i><img src={star} style={{ width: "25px", marginTop: "-5%" }}></img>
-                                <p style={{ color: "white" }}>{dishs.content}</p>
-                                <a href="#modal-opened" class="link-1" id="modal-closed" onClick={() => onPicDish(dishs)}>Read More</a>
+                            {dishPic ?
+                                dishPic.lable == dishs.lable ?
+                                    <div style={{ width: "85%", marginLeft: "5%", zIndex: "99" }}>
+                                        <span style={{ fontSize: "18px", fontWeight: "bold", color: "white" }}>Đánh giá món ăn </span>
+                                        {/* <hr /> */}
+                                        <label style={{ color: "white", marginLeft: "10%" }}>Số điện thoại đặt hàng</label>
+                                        <input style={{ width: "90%", height: "40px", borderRadius: "8px", paddingLeft: "5%", color: "black" }} onChange={(e) => setNumberPhoneCustomer(e.target.value)}></input>
+                                        {evaluate ?
+                                            <div>
+                                                <div class="star-container" style={{ display: "flex", marginTop: "10%",justifyContent: "center" }}>
+                                                    <input type="radio" name="star" id="one" />
+                                                    <label for="one" onClick={() => setStarEvaluate('5')}>
+                                                        {starEvaluate == '5' ?
+                                                            <img src={star} style={{ width: "40px" }} />
+                                                            :
+                                                            <img src={star_black} style={{ width: "40px" }} />
+                                                        }
+                                                        {/* <a style={{color:"black"}}>Lưu Danh</a> */}
+                                                    </label>
+                                                    <input type="radio" name="star" id="two" />
+                                                    <label for="two" onClick={() => setStarEvaluate('4')}>
+                                                        {starEvaluate == '4' || starEvaluate == '5' ?
+                                                            <img src={star} style={{ width: "40px" }} />
+                                                            :
+                                                            <img src={star_black} style={{ width: "40px" }} />
+                                                        }
+                                                    </label>
+                                                    <input type="radio" name="star" id="three" />
+                                                    <label for="three" onClick={() => setStarEvaluate('3')}>
+                                                        {starEvaluate == '4' || starEvaluate == '5' || starEvaluate == '3'  ?
+                                                            <img src={star} style={{ width: "40px" }} />
+                                                            :
+                                                            <img src={star_black} style={{ width: "40px" }} />
+                                                        }
+                                                    </label>
+                                                    <input type="radio" name="star" id="four" />
+                                                    <label for="four" onClick={() => setStarEvaluate('2')}>
+                                                        {starEvaluate == '4' || starEvaluate == '5' ||starEvaluate == '3' || starEvaluate == '2' ?
+                                                            <img src={star} style={{ width: "40px" }} />
+                                                            :
+                                                            <img src={star_black} style={{ width: "40px" }} />
+                                                        }
+                                                    </label>
+                                                    <input type="radio" name="star" id="five" />
+                                                    <label for="five" onClick={() => setStarEvaluate('1')}>
+                                                        <img src={star} style={{ width: "40px" }} />
+                                                    </label>
 
-                            </div>
+                                                </div>
+                                                {starEvaluate == '1' ? <span style={{ fontSize: "60px", marginTop: "20px", marginLeft: "25%" }}>😭</span> :
+                                                    starEvaluate == '2' ? <span style={{ fontSize: "60px", marginTop: "20px", marginLeft: "25%" }}>😮‍💨</span> :
+                                                        starEvaluate == '3' ? <span style={{ fontSize: "60px", marginTop: "20px", marginLeft: "25%" }}>🤪</span> :
+                                                            starEvaluate == '4' ? <span style={{ fontSize: "60px", marginTop: "20px", marginLeft: "25%" }}>😁</span> :
+                                                                <span style={{ fontSize: "60px", marginTop: "20px", marginLeft: "25%" }}>😍</span>
+                                                }
+                                                <br />
+                                                <label>Đánh giá </label>
+                                                <input style={{ width: "90%", height: "40px", borderRadius: "8px", paddingLeft: "5%", color: "black" }} onChange={(e) => setCommentCustomer(e.target.value)}></input>
+                                                <button onClick={() => setDishPic()} className='btn_danh_gia' style={{ width: "40%", height: "40px", borderRadius: "8px", padding: "1%", color: "black", fontSize: "16px", marginTop: "20px", float: "right", marginRight: "10%", backgroundColor: "#666" }} >Hủy</button>
+                                                <button onClick={onSubmitComment} className='btn_danh_gia' style={{ width: "40%", height: "40px", borderRadius: "8px", padding: "1%", color: "black", fontSize: "16px", marginTop: "20px", float: "right", marginRight: "10%" }} >Đánh giá</button>
+                                            </div>
+                                            : <button onClick={() => setDishPic()} className='btn_danh_gia' style={{ width: "40%", height: "40px", borderRadius: "8px", padding: "1%", color: "black", fontSize: "16px", marginTop: "20px", float: "right", marginRight: "10%", backgroundColor: "#666" }} >Hủy</button>}
+                                    </div>
+                                    :
+                                    <div className="content" >
+                                        <h2>01</h2>
+                                        <h3 style={{ color: "white" }}>{dishs.lable}</h3>
+                                        <i style={{ color: "white" }}>{dishs.evaluate}</i><img src={star} style={{ width: "25px", marginTop: "-5%" }}></img>
+                                        <p style={{ color: "white" }}>{dishs.content}</p>
+                                        <a href="#modal-opened" class="link-1" id="modal-closed" onClick={() => onPicDish(dishs)}>Read More</a>
+                                    </div>
+                                :
+                                <div className="content" >
+                                    <h2>01</h2>
+                                    <h3 style={{ color: "white" }}>{dishs.lable}</h3>
+                                    <i style={{ color: "white" }}>{dishs.evaluate}</i><img src={star} style={{ width: "25px", marginTop: "-5%" }}></img>
+                                    <p style={{ color: "white" }}>{dishs.content}</p>
+                                    <a href="#modal-opened" class="link-1" id="modal-closed" onClick={() => onPicDish(dishs)}>Read More</a>
+                                </div>
+                            }
                         </div>
                     </div>
                 ))}
-                {dishPic ?
+                {/* {dishPic ?
                     <div style={{ display: "flex", color: "white", position: "absolute", padding: "3%", width: "800px", height: "600px", backgroundColor: "gray", backgroundImage: "url(http://www.vietfuntravel.com.vn/image/data/Ha-Noi/am-thuc-ha-noi/tat-ca-nha-hang-co-khong-gian-dep-ha-noi-1.jpg)", borderRadius: "10px" }}>
                         <div style={{ width: "40%" }}>
                             <span style={{ fontSize: "26px", fontWeight: "bold", color: "white" }}>Đánh giá món ăn </span>
@@ -378,13 +431,11 @@ function Dish() {
                         <div className='card_dish_oder' style={{ width: "50%" }}>
                             <div className="card" style={{ position: "relative" }}>
                                 <div className="box" style={dishPic.img} >
-                                    {/* <div className="box"> */}
                                     <div className="content" >
                                         <h3 style={{ color: "white" }}>{dishPic.lable}</h3>
                                         <i style={{ color: "white" }}>{dishPic.evaluate}</i><img src={star} style={{ width: "25px", marginTop: "-5%" }}></img>
                                         <p style={{ color: "white" }}>{dishPic.content}</p>
                                         <a href="#modal-opened" class="link-1" id="modal-closed" onClick={() => onPicDish(dishPic)}>Read More</a>
-                                        {/* <a href="#modal-opened" class="link-1" id="modal-closed">Read More</a> */}
 
 
                                         <div class="star-source">
@@ -406,7 +457,7 @@ function Dish() {
                             </div>
                         </div>
                     </div> :
-                    ""}
+                    ""} */}
             </div>
         </div>
 

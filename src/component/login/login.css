@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200&display=swap');
+.login-form{
+    position: absolute;
+    top: 0;
+    z-index: 99;
+    width: 100%;
+}
+.login-form .containers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: linear-gradient(to right top, #72565A, #124FEB)
+}
+
+.login-form .containers .card {
+    height: 520px;
+    width: 60%;
+    background-color: #fff;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto Slab', serif
+}
+
+.login-form .containers .card .form {
+    width: 100%;
+    height: 100%;
+    display: flex
+}
+
+.login-form .containers .card .left-side {
+    width: 50%;
+    background-color: #fff;
+    height: 100%;
+    position: relative;
+    overflow: hidden
+}
+
+.login-form .left-side span:nth-child(1) {
+    position: absolute;
+    transform: rotate(45deg);
+    top: 70px;
+    left: -100px;
+    display: flex;
+    height: 180px;
+    width: 400px;
+    border-top-right-radius: 150px;
+    border-bottom-right-radius: 150px;
+    border: 15px solid #7FC1D2;
+    background-image: linear-gradient(to right, #D43CC6, #682E36);
+    opacity: 0.6;
+}
+
+.login-form .left-side span:nth-child(2) {
+    position: absolute;
+    transform: rotate(45deg);
+    top: -20px;
+    left: 130px;
+    display: flex;
+    height: 100px;
+    width: 200px;
+    border-top-right-radius: 150px;
+    border-bottom-right-radius: 150px;
+    background-image: linear-gradient(to right, #D43CC6, #682E36);
+    opacity: 0.7;
+}
+
+.login-form .left-side span:nth-child(3) {
+    position: absolute;
+    transform: rotate(45deg);
+    top: 280px;
+    left: -70px;
+    display: flex;
+    height: 100px;
+    width: 200px;
+    border-top-right-radius: 150px;
+    border-bottom-right-radius: 150px;
+    background-image: linear-gradient(to right, #D43CC6, #682E36);
+    opacity: 0.8;
+}
+
+.login-form .left-side span:nth-child(4) {
+    position: absolute;
+    transform: rotate(-135deg);
+    top: 435px;
+    left: 170px;
+    display: flex;
+    height: 100px;
+    width: 200px;
+    border-top-right-radius: 150px;
+    border-bottom-right-radius: 150px;
+    background-image: linear-gradient(to right, #FD2A6F, #FD2A46);
+    opacity: 0.9;
+}
+
+.login-form .containers .card .right-side {
+    width: 50%;
+    background-color: #fff;
+    height: 100%;
+    padding: 20px;
+    padding-top: 5%;
+}
+
+.login-form .d-none {
+    display: none !important
+}
+
+.login-form .login {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px
+}
+
+.login-form .input_text {
+    margin-top: 20px;
+    width: 100%;
+    position: relative
+}
+
+.login-form input[type="text"] {
+    height: 45px;
+    width: 100%;
+    border: none;
+    background-color: #E7DCE6;
+    outline: 0;
+    padding: 5px 10px;
+    padding-left: 25px;
+    border-radius: 10px
+}
+
+.login-form input[type="password"] {
+    height: 45px;
+    width: 100%;
+    border: none;
+    background-color: #E7DCE6;
+    outline: 0;
+    padding: 5px 10px;
+    padding-left: 25px;
+    padding-right: 28px;
+    border-radius: 10px
+}
+.login-form .input_text input{
+    padding-left: 10%;
+}
+.login-form .fa-lock {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    cursor: pointer;
+    color: #70747C
+}
+
+.login-form .fa-user {
+    position: absolute;
+    top: 14px;
+    left: 9px;
+    cursor: pointer;
+    color: #70747C
+}
+
+.login-form .fa-envelope {
+    position: absolute;
+    top: 15px;
+    left: 7px;
+    cursor: pointer;
+    color: #70747C;
+    font-size: 14px
+}
+
+.login-form .fa-eye-slash {
+    position: absolute;
+    top: 15px;
+    right: 9px;
+    cursor: pointer;
+    color: #70747C
+}
+
+.login-form .fa-eye {
+    position: absolute;
+    top: 15px;
+    right: 9px;
+    cursor: pointer;
+    color: #70747C
+}
+
+.login-form .login_btn {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.login-form .login_btn button {
+    height: 45px;
+    outline: 0;
+    border: none;
+    width: 100%;
+    color: #fff;
+    border-radius: 30px;
+    background-color: #B33346;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.5s
+}
+
+.login-form .login_btn button:hover {
+    background-color: #631B26
+}
+
+.login-form .forgot {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #B8B0B1;
+    font-weight: 600;
+    letter-spacing: 1px
+}
+
+.login-form .forgot p a {
+    text-decoration: none
+}
+
+.login-form .create {
+    margin-top: 40px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700
+}
+
+.login-form .margin {
+    margin-top: 67px !important
+}
+
+.login-form .create a {
+    text-decoration: none;
+    color: blue
+}
+
+.login-form .signin_warn {
+    border: 1px solid red !important
+}
+
+.login-form .signup_warn {
+    border: 1px solid red !important
+}
+
+.login-form .signin_eye_wrn {
+    border: 1px solid blue !important
+}
+
+.login-form .signup_eye_wrn {
+    border: 1px solid blue !important
+}
+
+@media (max-width:750px) {
+    .containers .card {
+        max-width: 350px
+    }
+
+    .containers .card .right-side {
+        width: 100%
+    }
+
+    .containers .card .left-side {
+        display: none
+    }
+}

@@ -322,12 +322,12 @@
   /* Functionality ====================================*/
   
   /* This is to keep the card centered (within its container) when opened */
-  .card:hover {
+  /* .card:hover {
     box-shadow:
     -.1rem 1.7rem 6.6rem -3.2rem rgba(0,0,0,0.75);
     width: 30rem;
   }
-  
+   */
   /* When the card is hovered, the flip card container will rotate */
   .card:hover .flip-card__container {
     transform: rotateY(-180deg);

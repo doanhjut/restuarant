@@ -1,6 +1,7 @@
 import * as actionType from "../actions/actionTpyes";
-const initialState = {
+var initialState = {
   dataTable: [],
+  language: "vn"
 }
 const dataTable = (state = initialState, action) => {
   switch (action.type) {
@@ -8,6 +9,15 @@ const dataTable = (state = initialState, action) => {
       return {
         ...state,
         restaurant_book: action.payload
+      }
+    case actionType.ON_CHANGE_LANGUAGE:
+      if (initialState.language === "vn") {
+        initialState.language = "en"
+      }else{
+        initialState.language = "vn"
+      }
+      return {
+        ...state,
       }
     default:
       return state;

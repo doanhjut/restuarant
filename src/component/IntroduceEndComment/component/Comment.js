@@ -170,7 +170,7 @@ function Comment() {
                                         <h3>
                                             Credit Card Details
                                         </h3>
-                                        <form action="" if="cc-form" autocomplete="off">
+                                        <form action="" if="cc-form" autoComplete="off">
                                             <div class="group card-number">
                                                 <label for="first">Đánh giá</label>
 
@@ -185,7 +185,7 @@ function Comment() {
                                             </div>
                                             <div class="group card-name">
                                                 <label for="name">Tên khách hàng</label>
-                                                <input type="text" id="name" class="" maxlength="20" placeholder="Name Surname" onChange={(e) => setCommetNameCustomer(e.target.value)} />
+                                                <input type="text" id="name" class="" maxLength="20" placeholder="Name Surname" onChange={(e) => setCommetNameCustomer(e.target.value)} />
                                             </div>
                                             <div class="group card-expiry">
                                                 <div class="input-item expiry">

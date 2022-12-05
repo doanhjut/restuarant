@@ -5,7 +5,7 @@ function IntroduceIndex() {
   return (
     <div className="App">
         <Introduce></Introduce>
-        <ImageHover></ImageHover>
+        {/* <ImageHover></ImageHover> */}
     </div>
   );
 }

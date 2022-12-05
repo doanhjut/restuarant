@@ -1,0 +1,155 @@
+.create_bill_content{
+    position: absolute;
+    top: 0;
+    /* left: 30%; */
+    z-index: 9;
+    width: 100%;
+    background-color: white;
+}
+.create_bill {
+	border: 0;
+	box-sizing: content-box;
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	vertical-align: top;
+
+}
+
+/* content editable */
+
+*[contenteditable] { border-radius: 0.25em; min-width: 1em; outline: 0; }
+
+*[contenteditable] { cursor: pointer; }
+
+*[contenteditable]:hover, *[contenteditable]:focus, td:hover *[contenteditable], td:focus *[contenteditable], img.hover { background: #DEF; box-shadow: 0 0 1em 0.5em #DEF; }
+
+.create_bill  span[contenteditable] { display: inline-block; }
+
+/* heading */
+
+.create_bill h1 { font: bold 100% sans-serif; letter-spacing: 0.5em; text-align: center; text-transform: uppercase; }
+
+/* table */
+
+.create_bill table { font-size: 75%; table-layout: fixed; width: 100%; }
+.create_bill table { border-collapse: separate; border-spacing: 2px; }
+.create_bill th, td { border-width: 1px; padding: 0.5em; position: relative; text-align: left; }
+.create_bill th, td { border-radius: 0.25em; border-style: solid; }
+.create_bill th { background: #EEE; border-color: #BBB; }
+.create_bill td { border-color: #DDD; }
+
+/* page */
+
+.create_bill  { font: 16px/1 'Open Sans', sans-serif; overflow: auto; padding: 0.5in; }
+.create_bill  { background: #999; cursor: default; }
+
+.create_bill  { box-sizing: border-box; height: 11in; margin: 0 auto; overflow: hidden; padding: 0.5in; width: 8.5in; }
+.create_bill  { background: #FFF; border-radius: 1px; box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5); }
+
+/* header */
+
+header { margin: 0 0 3em; }
+header:after { clear: both; content: ""; display: table; }
+
+header h1 { background: #000; border-radius: 0.25em; color: #FFF; margin: 0 0 1em; padding: 0.5em 0; }
+header address { float: left; font-size: 75%; font-style: normal; line-height: 1.25; margin: 0 1em 1em 0; }
+header address p { margin: 0 0 0.25em; }
+header span, header img { display: block; float: right; }
+header span { margin: 0 0 1em 1em; max-height: 25%; max-width: 60%; position: relative; }
+header img { max-height: 100%; max-width: 100%; }
+header input { cursor: pointer; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; height: 100%; left: 0; opacity: 0; position: absolute; top: 0; width: 100%; }
+
+/* article */
+
+.create_bill article,.create_bill  article address,.create_bill  table.meta,.create_bill  table.inventory { margin: 0 0 3em; }
+.create_bill article:after { clear: both; content: ""; display: table; }
+.create_bill article h1 { clip: rect(0 0 0 0); position: absolute; }
+
+.create_bill article address { float: left; font-size: 125%; font-weight: bold; }
+
+/* table meta & balance */
+
+.create_bill table.meta, table.balance { float: right; width: 36%; }
+.create_bill table.meta:after, table.balance:after { clear: both; content: ""; display: table; }
+
+/* table meta */
+
+.create_bill table.meta th { width: 40%; }
+.create_bill table.meta td { width: 60%; }
+
+/* table items */
+
+.create_bill table.inventory { clear: both; width: 100%; }
+.create_bill table.inventory th { font-weight: bold; text-align: center; }
+
+.create_bill table.inventory td:nth-child(1) { width: 26%; }
+.create_bill table.inventory td:nth-child(2) { width: 38%; }
+.create_bill table.inventory td:nth-child(3) { text-align: right; width: 12%; }
+.create_bill table.inventory td:nth-child(4) { text-align: right; width: 12%; }
+.create_bill table.inventory td:nth-child(5) { text-align: right; width: 12%; }
+
+/* table balance */
+
+.create_bill table.balance th, .create_bill table.balance td { width: 50%; }
+.create_bill table.balance td { text-align: right; }
+
+/* aside */
+
+.create_bill aside h1 { border: none; border-width: 0 0 1px; margin: 0 0 1em; }
+.create_bill aside h1 { border-color: #999; border-bottom-style: solid; }
+
+/* javascript */
+
+.create_bill .add,.create_bill  .cut
+{
+	border-width: 1px;
+	display: block;
+	font-size: .8rem;
+	padding: 0.25em 0.5em;	
+	float: left;
+	text-align: center;
+	width: 1.6em;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+.create_bill .add,.create_bill  .cut
+{
+	background: #9AF;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+	background-image: -moz-linear-gradient(#00ADEE 5%, #0078A5 100%);
+	background-image: -webkit-linear-gradient(#00ADEE 5%, #0078A5 100%);
+	border-radius: 0.5em;
+	border-color: #0076A3;
+	color: #FFF;
+	cursor: pointer;
+	font-weight: bold;
+	text-shadow: 0 -1px 2px rgba(0,0,0,0.333);
+}
+
+.create_bill .add { margin: -2.5em 0 0; }
+
+.create_bill .add:hover { background: #00ADEE; }
+
+.create_bill .cut { opacity: 0; position: absolute; top: 0; left: -1.5em; }
+.create_bill .cut { -webkit-transition: opacity 100ms ease-in; }
+
+.create_bill tr:hover .cut { opacity: 1; }
+
+@media print {
+	* { -webkit-print-color-adjust: exact; }
+	html { background: none; padding: 0; }
+	body { box-shadow: none; margin: 0; }
+	span:empty { display: none; }
+	.add, .cut { display: none; }
+}
+
+@page { margin: 0; }

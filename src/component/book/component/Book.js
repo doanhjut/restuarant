@@ -116,14 +116,16 @@ function App() {
 
     const restaurantBook = () => {
 
-        if (dataTable.restaurant_book) {
+        if (dataTable?.restaurant_book) {
             const data_book = [];
-            dataTable.restaurant_book.results.forEach(customer_book => {
+            dataTable?.restaurant_book.results.forEach(customer_book => {
                 if (customer_book.status === onChangeTime) {
+                   
                     data_book.push(INITIAL_STATE[customer_book.name - 1]);
                 }
 
             });
+            console.log(data_book);
             setStars(data_book);
             setStatus(true);
         }
@@ -134,7 +136,9 @@ function App() {
         console.log(moment(date).format('DD-MM-YYYY'));
         setOnChangeTime(moment(date).format('DD-MM-YYYY'))
     }
-
+    useEffect(() => {
+        restaurantBook();
+    }, [])
     useEffect(() => {
         restaurantBook();
     }, [onChangeTime])

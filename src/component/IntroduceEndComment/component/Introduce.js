@@ -1,18 +1,65 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import background_introduce from "../../../image/background-introduce.png"
 import background_introduce1 from "../../../image/background-introduce1.png"
 import Card from './Card';
 import Comment from './Comment';
 import { DatePicker, Space, message } from 'antd';
-
+import axios from 'axios';
+import background_introduce_1 from "../../../image/introducPage/background_introduce/image1.jpg"
+import background_introduce_2 from "../../../image/introducPage/background_introduce/image2.jpg"
+import background_introduce_3 from "../../../image/introducPage/background_introduce/image3.jpg"
+import background_introduce_4 from "../../../image/introducPage/background_introduce/image4.jpg"
 function Dish() {
-    const sendMessage = ()=>{
+    const [blogPageIntro, setBlogPageIntro] = useState();
+    const [listImageBackroungIntroduce, setListImageBackroungIntroduce] = useState([background_introduce_1, background_introduce_2, background_introduce_3, background_introduce_4]);
+    const [role, setRoleAccount] = useState((localStorage.getItem('role')));
+    const [itemImageBackroungIntroduce,setItemImageBackroungIntroduce] = useState(true);
+
+
+    const sendMessage = () => {
         message.error('Thông tin được lưu thành công', 3);
     }
+    useEffect(() => {
+        axios.get('http://192.168.160.85:5000/restaurant/blogPageIntro')
+            .then(res => {
+                setBlogPageIntro(res.data.results[0]);
+            })
+            .catch(error => {
+                const errorMsg = error.message
+            })
+    }, [])
     return (
         <div className="introduce">
             <div className="introduce_image">
+                {role == "admin"
+                    ?
+                    <div style={{ width: "100%", height: "100%", position: "absolute", top: "0", backgroundColor: "rgb(134,132,132,0.8)", zIndex: "2", textAlign: "center", }}>
+                        <div style={{ width: "60%", height: "60vh", marginLeft: "20%", display: "flex", flexWrap: "wrap", padding: "1%", border: "1px solid black", borderRadius: "15px", background: "gray", marginTop: "20VH" }}>
+                            {
+                                listImageBackroungIntroduce.map((image, key) => (
+                                    <div className='item_image'  style={{ width: "50%", height: "28vh" ,position:"relative"}}>
+                                        <img style={{ width: "100%", height: "100%" }} key={key} src={image}></img>
+                                        {itemImageBackroungIntroduce == false ?
+                                            ""
+                                            :
+                                             <div className='opacity'  style={{ width: "100%", height: "100%" }}>
+                                                <a><i className="fas fa-check"></i></a>
+                                            </div>
+                                             //  <div className='opacity' onClick={() => onPicImageSubmit(itemImage)}>
+                                            //     <a>{itemImage?.pic}</a>
+                                            // </div>
+                                        }
+                                    </div>
+
+
+                                ))
+                            }
+                        </div>
+                        <button style={{ marginTop: "25%", padding: "1% 2%", borderRadius: "15px", backgroundColor: "rgb(134,132,132,0.3)" }}>ChangeImage</button>
+                    </div>
+                    : ""
+                }
                 <img src={background_introduce} className="background-img background-img0"></img>
                 <img src={background_introduce1} className="background-img background-img1"></img>
             </div>
@@ -20,10 +67,8 @@ function Dish() {
             <div className="introduce-content">
                 <div className="introduce-menu">
                     <div className="introduce-information">
-                        <label>Thổi hồn ẩm thực Việt</label>
-                        <p>       Bánh phở mềm mềm, nước dùng ngọt đậm vị</p>
-                        <p> xương ống heo, hành ngò thơm nức mũi,</p>
-                        <p>thịt ăn kèm đầy bát chắc chắn sẽ làm bạn hài lòng.</p>
+                        <label>{blogPageIntro?.title}</label>
+                        <p>{blogPageIntro?.title_note}</p>
                     </div>
                     <div className='progress-bar-bottom'>
                         <div className='progress-bar' >
@@ -37,20 +82,18 @@ function Dish() {
             </div>
             <div className='trade-story'>
                 <label>CÂU CHUYỆN THƯƠNG HIỆU</label><br />
-                <i>-- Tinh hoa ẩm thực Việt --</i>
+                <i>{blogPageIntro?.trade_story}</i>
                 <div className='trade-story-content'>
                     <div className='trade-story-content-text'>
                         <p>
-                            Lẩu Wang là hệ thống chuỗi nhà hàng buffet lẩu tại Hà Nội được tin tưởng và đánh giá cao về chất lượng và giá cả các set buffet chỉ từ 139K, khách hàng sẽ được thưởng thức tới gần 50 món ăn từ ba chỉ bò Mỹ, hải sản tổng hợp, khai vị hấp dẫn với gà chiên cay ngọt Hàn Quốc, ngao xào, salad cùng vô vàn những món ăn, thức uống hấp dẫn khác.
-                        </p>
-                        <p>
-                            Với sự phát triển không ngừng, đến nay Lẩu Wang đã xây dựng và hoạt động 9 cơ sở:
+                            {blogPageIntro?.trade_story_note}
                         </p>
                         <ul>
-                            <li>CS1: 134 Trần Đại Nghĩa, Hai Bà Trưng.  </li>
-                            <li>CS3: Số 21 đường 19/5, Văn Quán, Hà Đông  </li>
-                            <li>CS4: 17 Tam Khương (số 17 ngõ 10 Tôn Thất Tùng). </li>
-                            <li>CS5: 81B Nguyễn Khang, Yên Hòa, Cầu Giấy.</li>
+                            {
+                                blogPageIntro?.list_adrress?.map((adrress, key) => (
+                                    <li key={key}>{adrress}  </li>
+                                ))
+                            }
                         </ul>
                     </div>
                     <img src='https://blog.dktcdn.net/files/mo-hinh-nha-hang.jpg'></img>
@@ -143,11 +186,11 @@ function Dish() {
                         </div>
 
                         <div className='trade-story-content'>
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.247659892366!2d105.7699102154988!3d21.022774286001628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454af1a896751%3A0xe60949cdb52032ca!2zTmcuIDMyMiDEkC4gTeG7uSDEkMOsbmgsIE3hu7kgxJDDrG5oIDEsIE5hbSBU4burIExpw6ptLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1665115648343!5m2!1svi!2s" style={{ width: "auto", height: "430px" }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.247659892366!2d105.7699102154988!3d21.022774286001628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454af1a896751%3A0xe60949cdb52032ca!2zTmcuIDMyMiDEkC4gTeG7uSDEkMOsbmgsIE3hu7kgxJDDrG5oIDEsIE5hbSBU4burIExpw6ptLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1665115648343!5m2!1svi!2s" style={{ width: "auto", height: "430px" }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
-                    <div style={{ textAlign: "center" ,padding:"0 5% 0 5%"}}>
-                        <p style={{ color:"orange", fontSize:"26px", fontWeight:"bold"}}>Liên hệ</p>
+                    <div style={{ textAlign: "center", padding: "0 5% 0 5%" }}>
+                        <p style={{ color: "orange", fontSize: "26px", fontWeight: "bold" }}>Liên hệ</p>
                         <a>Cần thông tin về nhà hàng của chúng tôi, hoặc cách đặt bàn ? Để lại cho chúng tôi một tin nhắn chúng tôi sẽ liên lạc với bạn</a>
                         <div>
                             <div id="first_form">

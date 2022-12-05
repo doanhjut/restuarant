@@ -31,6 +31,7 @@
 }
 .admin .content_statistic{
     display: flex;
+    padding-left: 10%;
 }
 .admin .content_statistic .content_statistic_item{
     width: 33%;
@@ -58,6 +59,21 @@
     margin-top: 2%;
     /* border: 1px solid black; */
     box-shadow: rgba(113, 110, 116, 0.35) 0px 5px 15px;
+    position: relative;
+}
+.admin .popup_create_dish {
+    width:60%;
+    height: 500px;
+    /* background-color: gray; */
+    background-image: url('https://t3.ftcdn.net/jpg/02/21/40/16/360_F_221401603_6urJw6Di9KjlgcPgLfkdVLHtc5Q21aCx.jpg');
+    background-size: 100% 500px;
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    z-index: 9;
+    border-radius: 20px;
+    padding: 5% 10%;
+    box-shadow: 10px 10px;
 }
 .admin .table-coment-dish .statistic_laybe button{
     margin-right: 1%;
@@ -67,6 +83,14 @@
 }
 .admin .table{
     margin-bottom: 30px;
+}
+.action_dish button{
+    width: 90px;
+    margin: 10px;
+    background-color: rgb(136, 136, 206);
+}
+.action_dish{
+    display: grid;
 }
 @media only screen and (min-width: 1500px) {
     .admin .chart-statistic .chart2 .chart2-content{
