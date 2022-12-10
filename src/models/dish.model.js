@@ -20,6 +20,9 @@ const userSchema = mongoose.Schema(
         like: {
             type: String,
         },
+        price: {
+            type: String,
+        },
         star5: {
             type: String,
         },

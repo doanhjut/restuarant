@@ -43,8 +43,24 @@ const getTable = async (filter, options) => {
   const users = await Book.paginate(filter, options);
   return users;
 };
+/**
+* Delete user by id
+* @param {ObjectId} userId
+* @returns {Promise<User>}
+*/
+const deleteBookById = async (bookID) => {
+  const book = await getBookById(bookID);
+  console.log(bookID);
+  if (!book) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'User not found');
+  }
+  await book.remove();
+  return book;
+};
 module.exports = {
   book,
   getTable,
-  createBook
+  createBook,
+  deleteBookById,
+  getBookById
 };

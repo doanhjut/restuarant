@@ -4,13 +4,14 @@ const catchAsync = require('../utils/catchAsync');
 const { billService } = require('../services');
 
 const createBill = catchAsync(async (req, res) => {
-    var io = req.app.get('socketio');
     const body = {
+        "name": req.body.name,
+        "status": req.body.status,
+        "nameCustomer": req.body.nameCustomer,
         "phoneNumber": req.body.phoneNumber,
-        "bill": req.body.bill,
-        "evaluate": req.body.evaluate,
-        "like": 0,
-        "dislike": 0,
+        "dish": req.body.dish,
+        "pay": req.body.pay,
+        "date": req.body.date
     }
     const bill = await billService.createBill(body);
     //   io.emit("reset_bill",``) 
@@ -45,9 +46,11 @@ const getBillById = catchAsync(async (req, res) => {
     const bill = await billService.getBillById(req.body.id);
     res.status(httpStatus.OK).send({ data: bill, msg: "get bill succsessfuly !!!", success: true });
 });
+
 module.exports = {
     createBill,
     getBill,
     getBillById,
-    updateBill
+    updateBill,
+
 };

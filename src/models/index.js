@@ -5,3 +5,4 @@ module.exports.Comment = require('./comment.model');
 module.exports.CommentDish = require('./commentDish.model');
 module.exports.Dish = require('./dish.model');
 module.exports.Bill = require('./bill.model');
+module.exports.BlogPageIntro = require('./blogPageIntro.model');

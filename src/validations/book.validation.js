@@ -16,7 +16,13 @@ const getTable = {
     phoneNumber: Joi.string(),
   }),
 };
+const deleteBook = {
+  body: Joi.object().keys({
+      id: Joi.string()
+  }),
+};
 module.exports = {
   book,
-  getTable
+  getTable,
+  deleteBook
 };

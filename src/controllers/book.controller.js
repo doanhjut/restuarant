@@ -10,7 +10,6 @@ const book = catchAsync(async (req, res) => {
     "nameCustomer": req.body.nameCustomer,
     "phoneNumber": req.body.phoneNumber
   }
-  console.log(body);
   const book = await bookService.book(req.body.id, body);
   res.status(httpStatus.OK).send({ data: book, msg: "book table succsessfuly !!!", success: true });
 });
@@ -30,7 +29,6 @@ const getTable = catchAsync(async (req, res) => {
   const filter = pick(req.query, ['name', 'status']);
   const options = pick(req.query, ['sortBy', 'limit', 'page']);
   const result = await bookService.getTable(filter, options);
-  console.log(result);
   res.send(result);
 });
 
@@ -40,10 +38,15 @@ const getAllTable = catchAsync(async (req, res) => {
   const result = await bookService.getTable(filter, options);
   res.send(result);
 });
+const deleteBook = catchAsync(async (req, res) => {
+  await bookService.deleteBookById(req.params.id);
+  res.status(httpStatus.NO_CONTENT).send();
+});
 
 module.exports = {
   book,
   getTable,
   getAllTable,
-  createBook
+  createBook,
+  deleteBook
 };

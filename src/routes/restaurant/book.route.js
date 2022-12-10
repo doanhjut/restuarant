@@ -8,10 +8,12 @@ const router = express.Router();
 
 router
   .route('/')
-  .get( validate(bookValidation.getAllTable), bookController.getAllTable)
-  .post( validate(bookValidation.getTable), bookController.getTable)
-  .put( validate(bookValidation.createBook), bookController.createBook);
-
+  .get(validate(bookValidation.getAllTable), bookController.getAllTable)
+  .post(validate(bookValidation.getTable), bookController.getTable)
+  .put(validate(bookValidation.createBook), bookController.createBook);
+router
+  .route('/:id')
+  .delete(validate(bookValidation.deleteBook), bookController.deleteBook)
 // router
 //   .route('/:userId')
 //   .get(auth('getUsers'), validate(userValidation.getUser), userController.getUser)

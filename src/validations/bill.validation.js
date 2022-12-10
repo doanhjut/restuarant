@@ -22,6 +22,19 @@ const getBill = {
         date: Joi.string()
     }),
 };
+
+const createBill = {
+    body: Joi.object().keys({
+        name: Joi.string(),
+        status: Joi.string(),
+        nameCustomer: Joi.string(),
+        phoneNumber: Joi.string(),
+        dish: Joi.string(),
+        pay: Joi.string(),
+        date: Joi.string(),
+    }),
+}
+
 const updateBill = {
     body: Joi.object().keys({
         id: Joi.string(),
@@ -41,5 +54,6 @@ const updateBill = {
 module.exports = {
     bill,
     getBill,
-    updateBill
+    updateBill,
+    createBill
 };

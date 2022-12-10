@@ -7,3 +7,4 @@ module.exports.commentService = require('./comment.service');
 module.exports.dishService = require('./dish.service');
 module.exports.billService = require('./bill.service');
 module.exports.commentDishService = require('./commentDish.service');
+module.exports.BlogPageIntroService = require('./BlogPageIntro.service');

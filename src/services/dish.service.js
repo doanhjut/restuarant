@@ -34,7 +34,6 @@ const getDish = async (filter, options) => {
 
 
   const users = await Dish.paginate(filter, options);
-  console.log(users);
   return users;
 };
 /**
@@ -60,10 +59,23 @@ const getDish = async (filter, options) => {
     await dish.save();
     return dish;
   };
-
+/**
+ * Delete user by id
+ * @param {ObjectId} userId
+ * @returns {Promise<User>}
+ */
+ const deleteDishById = async (dishId) => {
+  const dish = await getDishById(dishId);
+  if (!dish) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'User not found');
+  }
+  await dish.remove();
+  return dish;
+};
 module.exports = {
   createDish,
   getDish,
   updateDishById,
-  getDishById
+  getDishById,
+  deleteDishById
 };

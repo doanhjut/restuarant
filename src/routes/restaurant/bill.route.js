@@ -10,13 +10,10 @@ router
     .route('/')
     // .patch(validate(billValidation.updateDish), billController.updateDish)
     .get(validate(billValidation.getBill), billController.getBill)
-    // .put(validate(billValidation.createBook), billController.createDish)
+    .put(validate(billValidation.createBill), billController.createBill)
     // .post(validate(billValidation.getDish), billController.getDishById)
-// router
-//   .route('/:userId')
-//   .get(auth('getUsers'), validate(userValidation.getUser), userController.getUser)
-//   .patch(auth('manageUsers'), validate(userValidation.updateUser), userController.updateUser)
-//   .delete(auth('manageUsers'), validate(userValidation.deleteUser), userController.deleteUser);
+
+
 
 module.exports = router;
 

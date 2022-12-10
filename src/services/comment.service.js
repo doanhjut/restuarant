@@ -31,7 +31,6 @@ const createComment = async (commentBody) => {
  * @returns {Promise<QueryResult>}
  */
 const getComment = async (filter, options) => {
-  console.log(options);
 
   const users = await Comment.paginate(filter, options);
   return users;

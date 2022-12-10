@@ -1,5 +1,5 @@
 const httpStatus = require('http-status');
-const { Bill } = require('../models');
+const { BlogPageIntro } = require('../models');
 const ApiError = require('../utils/ApiError');
 /**
  * Get camera by id
@@ -7,18 +7,18 @@ const ApiError = require('../utils/ApiError');
  * @returns {Promise<Camera>}
  */
 const getBookById = async (id) => {
-  return Bill.findById(id);
+  return BlogPageIntro.findById(id);
 };
 /**
  * Create a user
  * @param {Object} userBody
  * @returns {Promise<Book>}
  */
-const createBill = async (billBody) => {
+const updateBlogPageIntroService = async (commentBody) => {
   // if (await User.isEmailTaken(userBody.email)) {
   //   throw new ApiError(httpStatus.BAD_REQUEST, 'Email already taken');
   // }
-  return Bill.create(billBody);
+  return BlogPageIntro.create(commentBody);
 };
 
 /**
@@ -30,39 +30,12 @@ const createBill = async (billBody) => {
  * @param {number} [options.page] - Current page (default = 1)
  * @returns {Promise<QueryResult>}
  */
-const getBill = async (filter, options) => {
+const getBlogPageIntro = async (filter, options) => {
 
-  const users = await Bill.paginate(filter, options);
-  return users;
+  const blogPageIntro = await BlogPageIntro.paginate(filter, options);
+  return blogPageIntro;
 };
-/**
- * Get bill by id
- * @param {ObjectId} id
- * @returns {Promise<Bill>}
- */
-const getBillById = async (id) => {
-  return Bill.findById(id);
-};
-/**
- * Update bill by id
- * @param {ObjectId} billId
- * @param {Object} updateBody
- * @returns {Promise<Bill>}
- */
-const updateBillById = async (billID, updateBody) => {
-  const bill = await getBillById(billID);
-  if (!bill) {
-    throw new ApiError(httpStatus.NOT_FOUND, 'Bill not found');
-  }
-  Object.assign(bill, updateBody);
-  await bill.save();
-  return bill;
-};
-
-
 module.exports = {
-  createBill,
-  getBill,
-  updateBillById,
-  getBillById,
+  updateBlogPageIntroService,
+  getBlogPageIntro,
 };

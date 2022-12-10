@@ -4,6 +4,7 @@ const commentsRoute = require('./comments.route');
 const dishRoute = require('./dish.route');
 const billRoute = require('./bill.route');
 const commentDishRoute = require('./commentDishs.route'); 
+const blogPageIntro = require('./blogPageIntro.route'); 
 const router = express.Router();
 
 const defaultRoutes = [
@@ -26,6 +27,10 @@ const defaultRoutes = [
   {
     path :'/commentDish',
     route :commentDishRoute
+  },
+  {
+    path :'/blogPageIntro',
+    route :blogPageIntro
   }
 ];
 

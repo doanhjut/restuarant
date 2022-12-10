@@ -12,6 +12,11 @@ router
     .get(validate(dishValidation.getDish), dishController.getDish)
     .put(validate(dishValidation.createBook), dishController.createDish)
     .post(validate(dishValidation.getDish), dishController.getDishById)
+    
+router
+    .route('/:id')
+    .delete(validate(dishValidation.deleteDish), dishController.deleteDish)
+
 // router
 //   .route('/:userId')
 //   .get(auth('getUsers'), validate(userValidation.getUser), userController.getUser)

@@ -13,6 +13,15 @@ const dish = {
         star1: Joi.string(),
         img: Joi.string(),
         dislike: Joi.string(),
+        price: Joi.number()
+    }),
+};
+const createBook = {
+    body: Joi.object().keys({
+        lable: Joi.string(),
+        content: Joi.string(),
+        img: Joi.string(),
+        price: Joi.number()
     }),
 };
 const getDish = {
@@ -28,6 +37,12 @@ const getDish = {
         star1: Joi.string(),
         img: Joi.string(),
         dislike: Joi.string(),
+        price: Joi.number()
+    }),
+};
+const deleteDish = {
+    body: Joi.object().keys({
+        dishId: Joi.string()
     }),
 };
 const updateDish = {
@@ -44,10 +59,12 @@ const updateDish = {
         star1: Joi.string(),
         img: Joi.string(),
         dislike: Joi.string(),
+        price: Joi.number()
     }),
 };
 module.exports = {
     dish,
     getDish,
-    updateDish
+    updateDish,
+    deleteDish
 };
