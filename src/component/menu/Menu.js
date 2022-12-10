@@ -26,19 +26,17 @@ function Menu() {
     return (
         <div className='menu'>
             {role == "admin" ?
-                <nav>
+                <nav >
                     <a onClick={() => setPages('/')}>{tran.t('home_page',{lng:translate})} </a>
                     <a onClick={() => setPages('/dishs')} >{tran.t('menu',{lng:translate})}</a>
                     <a onClick={() => setPages('/view')}>{tran.t('book',{lng:translate})}</a>
-                    <a >{tran.t('address',{lng:translate})}</a>
-                    <a >{tran.t('contact',{lng:translate})}</a>
                     <a onClick={() => setPages('/admin')}>{tran.t('admin',{lng:translate})}</a>
                     <a onClick={() => setPages('/createBill')}>{tran.t('create_bill',{lng:translate})}</a>
                     <div class="animation start-home" style={pages == '/' ? { width: "100px", left: "0", backgroundColor: "#1abc9c" } :
                         pages == '/dishs' ? { width: "110px", left: "100px", backgroundColor: "#e74c3c" } :
                             pages == '/view' ? { width: "100px", left: "210px", backgroundColor: "#3498db" } :
-                                pages == '/admin' ? { width: "100px", left: "600px", backgroundColor: "#3498db" } :
-                                    { width: "120px", left: "710px", backgroundColor: "#3498db" }
+                                pages == '/admin' ? { width: "100px", left: "340px", backgroundColor: "#3498db" } :
+                                    { width: "120px", left: "470px", backgroundColor: "#3498db" }
                     } ></div>
                 </nav>
                 :
@@ -47,8 +45,6 @@ function Menu() {
                         <a onClick={() => setPages('/')}>{tran.t('home_page',{lng:translate})}</a>
                         <a onClick={() => setPages('/dishs')} >{tran.t('menu',{lng:translate})}</a>
                         <a onClick={() => setPages('/view')}>{tran.t('book',{lng:translate})}</a>
-                        <a >{tran.t('address',{lng:translate})}</a>
-                        <a >{tran.t('contact',{lng:translate})}</a>
                         <a onClick={() => setPages('/createBill')}>{tran.t('create_bill',{lng:translate})}</a>
                         <div class="animation start-home" style={pages == '/' ? { width: "100px", left: "0", backgroundColor: "#1abc9c" } :
                             pages == '/dishs' ? { width: "110px", left: "100px", backgroundColor: "#e74c3c" } :
@@ -61,7 +57,7 @@ function Menu() {
                         <a onClick={() => setPages('/')}>{tran.t('home_page',{lng:translate})}</a>
                         <a onClick={() => setPages('/dishs')} >{tran.t('menu',{lng:translate})}</a>
                         <a onClick={() => setPages('/view')}>{tran.t('book',{lng:translate})}</a>
-                        <a >{tran.t('address',{lng:translate})}</a>
+
                         <a >{tran.t('contact',{lng:translate})}</a>
                         <div class="animation start-home" style={pages == '/' ? { width: "100px", left: "0", backgroundColor: "#1abc9c" } :
                             pages == '/dishs' ? { width: "110px", left: "100px", backgroundColor: "#e74c3c" } :

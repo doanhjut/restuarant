@@ -265,7 +265,7 @@ button:focus::after {
   left: 0;
   z-index: -1;
 }
-.introduce_image  .item_image .opacity {
+.item_image .opacity {
   position: absolute;
   border-radius: 15px;
   top: 0;
@@ -277,7 +277,7 @@ button:focus::after {
   justify-content: center;
   align-items: center;
 }
-.introduce_image  .item_image .opacity a {
+.item_image .opacity a {
   padding: 0.5% 4% 0.5% 4%;
   border-radius: 50%;
   margin-top: -25%;
@@ -372,11 +372,11 @@ button:focus::after {
 
 .trade-story-content-text {
   width: 45%;
-  margin: 5% 3% 0 0;
+  margin: 5% 3% 0 2%;
 }
 
 .trade-story-content img {
-  width: 45%;
+  width: 100%;
 }
 
 .infor-menu {
@@ -957,7 +957,7 @@ div#first_form {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.button-change-book .btn-two:hover::before {
+/* .button-change-book .btn-two:hover::before {
   transform: rotate(-45deg);
   background-color: rgba(255, 255, 255, 0);
 }
@@ -965,7 +965,7 @@ div#first_form {
 .button-change-book .btn-two:hover::after {
   transform: rotate(45deg);
   background-color: rgba(255, 255, 255, 0);
-}
+} */
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {

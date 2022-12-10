@@ -107,7 +107,7 @@ function InforReportRestaurant() {
                     <div style={{ display: "flex" }}>
                         <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlpmdI_Qdiutgbmms0M8McPrwnigTZDLTmkA&usqp=CAU'></img>
                         <div >
-                            <p>{tran.t('customers_number', { lng: translate })}</p>
+                            <p>{tran.t('turnover', { lng: translate })}</p>
                             <h3>
                                 {total?.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}
                             </h3>

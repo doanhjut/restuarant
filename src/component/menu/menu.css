@@ -4,10 +4,10 @@
 }
 .menu nav {
 	/* margin: 27px auto 0; */
-	margin-left: 45%;
+	margin-left: 56%;
 	/* padding: 1%; */
 	position: relative;
-	width: 830px;
+	width: auto;
 	height: 50px;
 	background-color: #d1dad3;
 	border-radius: 8px;
